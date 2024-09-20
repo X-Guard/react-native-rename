@@ -57,8 +57,8 @@ export const getIosUpdateFilesContentOptions = ({
     },
     {
       files: ['ios/*/AppDelegate.mm', 'ios/*/AppDelegate.m'],
-      from: [new RegExp(`@"(.*)"`, 'g')],
-      to: `@"${newName}"`,
+      from: [new RegExp(`self\.moduleName = @"(.*)";`, 'g')],
+      to: `self.moduleName = @"${newName}";`,
     },
     {
       files: [
