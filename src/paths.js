@@ -61,6 +61,14 @@ export const getIosUpdateFilesContentOptions = ({
       to: `self.moduleName = @"${newName}";`,
     },
     {
+      files: 'ios/*/AppDelegate.swift',
+      from: [
+        new RegExp(`self\.moduleName = @"(.*)";`, 'g'),
+        new RegExp(`withModuleName = @"(.*)";`, 'g'),
+      ],
+      to: [`self.moduleName = @"${newName}";`, `withModuleName = "@${newName}";`],
+    },
+    {
       files: [
         'ios/*.xcodeproj/project.pbxproj',
         'ios/*.xcworkspace/contents.xcworkspacedata',
@@ -160,19 +168,19 @@ export const getIosUpdateFilesContentOptions = ({
           );
 
         } else
-        if (newBundleID && iosPreviousBundleID) {
+          if (newBundleID && iosPreviousBundleID) {
 
-          input = input.replace(
-            new RegExp(iosPreviousBundleID.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'),
-            newBundleID
-          );
+            input = input.replace(
+              new RegExp(iosPreviousBundleID.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'),
+              newBundleID
+            );
 
-          input = input.replace(
-            new RegExp(iosPreviousBundleID.replace(/\./g, '_').replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'),
-            newBundleID.replace(/\./g, '_')
-          );
+            input = input.replace(
+              new RegExp(iosPreviousBundleID.replace(/\./g, '_').replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'),
+              newBundleID.replace(/\./g, '_')
+            );
 
-        }
+          }
 
         return input;
       },
