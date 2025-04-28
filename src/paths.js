@@ -5,7 +5,7 @@ export const androidValuesStrings = 'android/app/src/main/res/values/strings.xml
 export const androidJava = 'android/app/src/*/java';
 export const iosXcodeproj = 'ios/*.xcodeproj';
 export const iosPbxProject = 'ios/*.xcodeproj/project.pbxproj';
-export const iosAppDelegate = 'ios/*/AppDelegate.h';
+export const iosInfoPlist = 'ios/*/Info.plist';
 export const appJson = 'app.json';
 export const packageJson = 'package.json';
 export const buildPaths = [
@@ -215,7 +215,7 @@ export const getAndroidUpdateFilesContentOptions = ({
     {
       files: 'android/settings.gradle',
       from: [/rootProject.name = "(.*)"/g, /rootProject.name = '(.*)'/g],
-      to: `rootProject.name = '${newName}'`,
+      to: `rootProject.name = "${newName}"`,
     },
     {
       files: [`android/app/src/main/java/${newBundleIDAsPath}/MainActivity.java`],
