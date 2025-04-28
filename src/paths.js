@@ -63,10 +63,10 @@ export const getIosUpdateFilesContentOptions = ({
     {
       files: 'ios/*/AppDelegate.swift',
       from: [
-        new RegExp(`self\.moduleName = @"(.*)";`, 'g'),
-        new RegExp(`withModuleName = @"(.*)";`, 'g'),
+        new RegExp(`self.moduleName = "${currentName}"`, 'g'),
+        new RegExp(`withModuleName: "${currentName}"`, 'g'),
       ],
-      to: [`self.moduleName = @"${newName}";`, `withModuleName = "@${newName}";`],
+      to: [`self.moduleName = "${newName}"`, `withModuleName: "${newName}"`],
     },
     {
       files: [
