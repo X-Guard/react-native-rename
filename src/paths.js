@@ -213,21 +213,6 @@ export const getAndroidUpdateFilesContentOptions = ({
 
   return [
     {
-      files: 'android/settings.gradle',
-      from: [/rootProject.name = "(.*)"/g, /rootProject.name = '(.*)'/g],
-      to: `rootProject.name = "${newName}"`,
-    },
-    {
-      files: [`android/app/src/main/java/${newBundleIDAsPath}/MainActivity.java`],
-      from: [`"${currentName}"`],
-      to: `"${newName}"`,
-    },
-    {
-      files: [`android/app/src/main/java/${newBundleIDAsPath}/MainActivity.kt`],
-      from: [`= "${currentName}"`],
-      to: `= "${newName}"`,
-    },
-    {
       files: 'android/.idea/.name',
       from: currentName,
       to: newName,
@@ -345,7 +330,6 @@ export const getOtherUpdateFilesContentOptions = ({
         /\"scheme\"\: \"(.*)\"/,
         /\"package\"\: \"(.*)\"/,
         /\"bundleIdentifier\"\: \"(.*)\"/,
-        /\"name\"\: \"(.*)\"/,
         /\"slug\"\: \"(.*)\"/,
       ],
       to: [
@@ -354,7 +338,6 @@ export const getOtherUpdateFilesContentOptions = ({
         `"scheme": "${cleanNewPathContentStr}"`,
         `"package": "${newAndroidBundleID}"`,
         `"bundleIdentifier": "${newIosBundleID}"`,
-        `"name": "${newName}"`,
         `"slug": "${newName}"`,
       ],
     },
