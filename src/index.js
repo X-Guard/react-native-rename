@@ -87,7 +87,7 @@ program
     const currentPathContentStr = getIosXcodeProjectPathName();
     const newPathContentStr = pathContentStr || newName;
     const currentAndroidBundleID = getAndroidCurrentBundleID();
-
+    console.log(`android: = ${currentAndroidName}"; ios name: = ${currentIosName}"; newname =${newName}";`);
     await renameIosFoldersAndFiles(newPathContentStr);
     await updateIosFilesContent({
       currentName: currentIosName,
