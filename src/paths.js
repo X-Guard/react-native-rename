@@ -69,11 +69,6 @@ export const getIosUpdateFilesContentOptions = ({
       to: [`self.moduleName = "${newName}"`, `withModuleName: "${newName}"`],
     },
     {
-      files: 'ios/*/AppDelegate.swift',
-      from: [new RegExp(`self.moduleName = "${currentName}"`, 'g')],
-      to: `self.moduleName = "${newName}"`,
-    },
-    {
       files: [
         'ios/*.xcodeproj/project.pbxproj',
         'ios/*.xcworkspace/contents.xcworkspacedata',
