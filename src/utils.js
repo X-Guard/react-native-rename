@@ -174,6 +174,9 @@ export const getIosCurrentName = () => {
   const selector = 'dict > key:contains("CFBundleName") + string';
   const element = getElementFromXml({ filepath, selector });
 
+  console.log('iosInfoPlist', filepath);
+  console.log('iosInfoPlist selector', selector);
+  console.log('iosInfoPlist element', element.text());
   return decodeXmlEntities(element.text());
 };
 
