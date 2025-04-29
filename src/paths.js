@@ -46,6 +46,8 @@ export const getIosUpdateFilesContentOptions = ({
   const encodedCurrentName = encodeXmlEntities(currentName);
   const cleanNewPathContentStr = cleanString(newPathContentStr);
 
+  console.log('ios update files content options ' + currentName + ' ' + newName);
+
   return [
     {
       files: 'ios/Podfile',
@@ -63,7 +65,7 @@ export const getIosUpdateFilesContentOptions = ({
     {
       files: 'ios/*/AppDelegate.swift',
       from: [
-        new RegExp(`self\.moduleName = @"(.*)";`, 'g'),
+        new RegExp(`self.moduleName = "${currentName}"`, 'g'),
         new RegExp(`withModuleName: "${currentName}"`, 'g'),
       ],
       to: [`self.moduleName = "${newName}"`, `withModuleName: "${newName}"`],
