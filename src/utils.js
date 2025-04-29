@@ -48,7 +48,7 @@ const normalizePath = process.platform === 'win32' ? require('normalize-path') :
 const androidValuesStringsFullPath = path.join(APP_PATH, androidValuesStrings);
 
 export const validateCreation = () => {
-  const iosInfoPlistFullPath = globbySync(normalizePath(path.join(APP_PATH, iosInfoPlist)))[0];
+  const iosInfoPlistFullPath = globbySync(normalizePath(path.join(APP_PATH, iosInfoPlist)))[1];
   const fileExists =
     fs.existsSync(iosInfoPlistFullPath) && fs.existsSync(androidValuesStringsFullPath);
 
@@ -169,7 +169,7 @@ const getElementFromXml = ({ filepath, selector }) => {
 };
 
 export const getIosCurrentName = () => {
-  const filepath = globbySync(normalizePath(path.join(APP_PATH, iosInfoPlist)));
+  const filepath = globbySync(normalizePath(path.join(APP_PATH, iosInfoPlist)))[1];
   // const selector = 'dict > key:contains("CFBundleDisplayName") + string';
   const selector = 'dict > key:contains("CFBundleName") + string';
   const element = getElementFromXml({ filepath, selector });
