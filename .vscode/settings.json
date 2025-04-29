@@ -16,5 +16,6 @@
     "xctest",
     "xcworkspace",
     "xcworkspacedata"
-  ]
+  ],
+  "yaml.schemaStore.enable": false
 }
