@@ -46,7 +46,7 @@ export const getIosUpdateFilesContentOptions = ({
   const encodedCurrentName = encodeXmlEntities(currentName);
   const cleanNewPathContentStr = cleanString(newPathContentStr);
 
-  console.log('ios update files content options ' + currentName + ' ' + newName);
+  console.log(`new names: = ${newName}"; old name: = ${currentName}";`);
 
   return [
     {
