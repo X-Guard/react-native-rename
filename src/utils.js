@@ -169,7 +169,7 @@ const getElementFromXml = ({ filepath, selector }) => {
 };
 
 export const getIosCurrentName = () => {
-  const filepath = globbySync(normalizePath(path.join(APP_PATH, iosInfoPlist)))[0];
+  const filepath = globbySync(normalizePath(path.join(APP_PATH, iosInfoPlist)));
   // const selector = 'dict > key:contains("CFBundleDisplayName") + string';
   const selector = 'dict > key:contains("CFBundleName") + string';
   const element = getElementFromXml({ filepath, selector });
