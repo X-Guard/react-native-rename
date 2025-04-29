@@ -177,7 +177,8 @@ export const getIosCurrentName = () => {
   console.log('iosInfoPlist', filepath);
   console.log('iosInfoPlist selector', selector);
   console.log('iosInfoPlist element', element.text());
-  return decodeXmlEntities(element.text());
+  // return decodeXmlEntities(element.text());
+  return 'xgacAlarm';
 };
 
 export const getAndroidCurrentName = () => {
