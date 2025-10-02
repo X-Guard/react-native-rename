@@ -281,6 +281,7 @@ export const getAndroidUpdateBundleIDOptions = ({
         `android/app/src/main/java/${newBundleIDAsPath}/MainApplication.java`,
         `android/app/src/main/java/${newBundleIDAsPath}/MainActivity.kt`,
         `android/app/src/main/java/${newBundleIDAsPath}/MainApplication.kt`,
+        `android/app/src/main/java/${newBundleIDAsPath}/MainReactNativehost.kt`,
       ],
       from: new RegExp(`${currentBundleID}`, 'g'),
       to: newBundleID,
