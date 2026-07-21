@@ -285,6 +285,7 @@ export const getAndroidUpdateBundleIDOptions = ({
         `android/app/src/main/java/${newBundleIDAsPath}/MyAppPackage.kt`,
         `android/app/src/main/java/${newBundleIDAsPath}/NotificationServiceExtension.kt`,
         `android/app/src/main/java/${newBundleIDAsPath}/NotificationServiceExtensionModule.kt`,
+        `android/app/src/main/java/${newBundleIDAsPath}/OnBootReceiver.kt`,
       ],
       from: new RegExp(`${currentBundleID}`, 'g'),
       to: newBundleID,
